@@ -1,0 +1,35 @@
+.hero_container {
+  background-position: center;
+  background-size: cover;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  background-blend-mode: color;
+  width: 90%;
+  margin: 4rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+}
+
+.chef_img {
+  background-position: center;
+  background-size: 180px;
+  background-repeat: no-repeat;
+  width: 25%;
+  height: 100%;
+}
+
+.hero_title {
+  font-size: 4em;
+  font-family: var(--Pacifico);
+  color: var(--white);
+  text-align: center;
+  margin: 0 1rem;
+}
+
+@media (max-width: 670px) {
+  .hero_title {
+    font-size: 2.5em;
+  }
+}
