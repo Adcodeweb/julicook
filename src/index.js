@@ -9,6 +9,7 @@ import {
 import Products from './Pages/Products';
 import Navbar from './Components/Navbar';
 import Details from './Pages/Details';
+import Footer from './Components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,5 +20,6 @@ root.render(
       <Route path="/products" element={<Products />} />
       <Route path="/product/:productId" element={<Details />} />
     </Routes>
+    <Footer />
   </BrowserRouter>
 );
