@@ -5,6 +5,10 @@ img {
 .product {
   max-width: 800px;
   margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .product_sec1 {

@@ -1,6 +1,15 @@
+.products_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
 .page_title {
-  margin-left: 3rem;
+  margin-left: 5rem;
   font-size: 2rem;
+  text-align: left;
 }
 
 .products_container {
@@ -51,6 +60,16 @@
   }
 }
 
+.btn_more {
+  border-style: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 1rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
 @media (max-width: 960px) {
   .cards__container {
     grid-template-columns: 1fr;
@@ -83,5 +102,8 @@
 
   .cards__container {
     max-width: 90%;
+  }
+  .page_title {
+    margin-left: 1.5rem;
   }
 }
