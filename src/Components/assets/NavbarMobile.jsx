@@ -1,6 +1,7 @@
 import NavbarLinks from "./NavbarLinks";
 import logo from "../../img/logo.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function NavbarMovile() {
   const [isBurger, setIsBurger] = useState(false);
@@ -14,9 +15,11 @@ export default function NavbarMovile() {
 
   return (
     <nav className="navBar_mobile">
-      <img src={logo} className="nvb_mb_logo" alt="logo" />
-      <div className={isBurger ? "content open" : "content"} id="content">
-        <NavbarLinks logo={true} onClick={handleClick} />
+      <Link to="/">
+        <img src={logo} className="nvb_mb_logo" alt="logo" />
+      </Link>
+      <div className={isBurger ? "content open " : "content "} id="content">
+        <NavbarLinks logo={true} onClick={handleClick} showLink={isBurger} />
       </div>
       <div
         className={isBurger ? "hamburger open" : "hamburger"}

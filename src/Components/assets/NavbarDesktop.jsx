@@ -1,4 +1,3 @@
-// import logo from "../img/logo.png";
 import NavbarLinks from "./NavbarLinks";
 
 export default function Navbar() {

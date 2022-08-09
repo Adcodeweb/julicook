@@ -3,12 +3,12 @@ import logo from "../../img/logo.png";
 export default function NavbarLinks(props) {
   return (
     <>
-      <li>
+      <li className={`shut_links ${props.showLink && "show_links"}`}>
         <Link onClick={props.onClick} className="navbar_enlace" to="/products">
           Recetas
         </Link>
       </li>
-      <li>
+      <li className={`shut_links ${props.showLink && "show_links"}`}>
         <Link onClick={props.onClick} className="navbar_enlace" to="/">
           Snacks
         </Link>
@@ -20,12 +20,14 @@ export default function NavbarLinks(props) {
           </Link>
         </li>
       )}
-      <li className="nvb_logo_li">
+      <li
+        className={`shut_links nvb_logo_li  ${props.showLink && "show_links"}`}
+      >
         <Link onClick={props.onClick} className="navbar_enlace" to="/postres">
           Postres
         </Link>
       </li>
-      <li>
+      <li className={`shut_links ${props.showLink && "show_links"}`}>
         <Link onClick={props.onClick} className="navbar_enlace" to="/blog">
           Blog
         </Link>
