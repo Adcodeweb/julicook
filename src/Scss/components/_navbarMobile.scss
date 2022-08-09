@@ -1,0 +1,113 @@
+// NavBar Mobile
+.navBar_mobile {
+  display: none;
+}
+@media (max-width: 650px) {
+  .navbar_Desktop {
+    display: none;
+  }
+
+  .navBar_mobile {
+    background-color: var(--rosa);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem 0;
+    position: relative;
+  }
+
+  .nvb_mb_logo {
+    width: 150px;
+  }
+
+  .menu_logo {
+    width: 200px;
+  }
+  .hamburger {
+    width: 2.188rem;
+    height: 2.188rem;
+
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+
+  .hamburger span {
+    display: block;
+    background: var(--blue);
+
+    height: 5.5px;
+    width: 100%;
+    border-radius: 2px;
+
+    transform: rotate(0deg);
+    transform-origin: left center;
+    transition: 0.5s ease-in-out;
+  }
+
+  .hamburger.open span {
+    background: var(--blue);
+    width: 100%;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(55deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-54deg);
+  }
+
+  .content {
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    background-color: var(--rosaTS);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: 0.65s cubic-bezier(0.8, -0.5, 0.2, 1.2);
+    & li {
+      list-style-type: none;
+      width: 80%;
+      padding: 1rem 0;
+      text-align: center;
+      border-radius: 1rem;
+
+      & a {
+        font-size: 1.7rem;
+        font-family: var(--Pacifico);
+        color: var(--blue);
+        text-decoration: none;
+      }
+    }
+  }
+  .content.open {
+    opacity: 1;
+    width: 100vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fixed_body {
+    overflow: hidden;
+  }
+}

@@ -21,7 +21,7 @@ export default function Details() {
       setIngredientes(doc.data().ingredientes);
       setIsLoading(false);
     });
-  }, []);
+  }, [productId]);
 
   const Details = steps.map((step, index) => {
     return (

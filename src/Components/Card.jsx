@@ -1,8 +1,6 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Card(props) {
-  let { productId } = useParams();
-
   return (
     <div className="card">
       <div
@@ -15,10 +13,7 @@ export default function Card(props) {
         <h1>{props.title}</h1>
         <p>{props.description}</p>
 
-        <Link
-          className="readmore_btn"
-          to={`/product/${(productId = props.clave)}`}
-        >
+        <Link className="readmore_btn" to={`/product/${props.clave}`}>
           Leer mas
         </Link>
       </div>
