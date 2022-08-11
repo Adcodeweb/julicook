@@ -17,8 +17,8 @@ root.render(
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/product/:productId" element={<Details />} />
+      <Route path="/recetas" element={<Products />} />
+      <Route path="/receta/:productId" element={<Details />} />
     </Routes>
     <Footer />
   </BrowserRouter>

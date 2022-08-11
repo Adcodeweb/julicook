@@ -4,7 +4,7 @@ export default function NavbarLinks(props) {
   return (
     <>
       <li className={`shut_links ${props.showLink && "show_links"}`}>
-        <Link onClick={props.onClick} className="navbar_enlace" to="/products">
+        <Link onClick={props.onClick} className="navbar_enlace" to="/recetas">
           Recetas
         </Link>
       </li>

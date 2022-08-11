@@ -2,11 +2,12 @@
 .navBar_mobile {
   display: none;
 }
-.shut_links {
-  display: none;
-}
+
 @media (max-width: 650px) {
   .navbar_Desktop {
+    display: none;
+  }
+  .shut_links {
     display: none;
   }
 
