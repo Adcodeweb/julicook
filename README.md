@@ -18,7 +18,7 @@ The structured of folder I've been using so far
 
 ### Landing Page 
 
-following the idea of the layout I created using SwiperJs, two sections where the firts one will show the last 8 recipes created, and the second one the last 8 desserts, this is filtered using query from firebase, limit and order by the last added recipes to the collection, inside the swiper there's a component being render with the img and title from the call to firestore collection.
+I created using SwiperJs two sections where the firts one will show the last 8 recipes created, and the second one the last 8 desserts, this is filtered using query from firebase, limit and order by the last added recipes to the collection, inside the swiper there's a component being render with the img and title from the call to firestore collection.
 
 ![home](https://user-images.githubusercontent.com/105512009/184291607-38fb0276-ab40-41ad-bce3-aab56cefcb0f.png)
 
