@@ -1,27 +1,34 @@
 import "../index.scss";
-import chef from "../img/Chef-batiendo.png";
-import SliderCards from "../Components/Slider-cards";
-import { IoIceCream } from "react-icons/io5";
-import { collection, getDocs, orderBy } from "firebase/firestore";
-import { Link } from "react-router-dom";
-import { query, limit } from "firebase/firestore";
-import { db } from "../firebase-config";
-import { Autoplay, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
+import { Autoplay, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SliderCards from "../Components/Slider-cards";
+import chef from "../img/Chef-batiendo.png";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { db } from "../firebase-config";
+import {
+  collection,
+  getDocs,
+  orderBy,
+  where,
+  query,
+  limit,
+} from "firebase/firestore";
 
 export default function Home() {
   const productsCollectionRef = collection(db, "Products");
   const [lastRecipes, setLastRecipes] = useState([]);
+  const [postresRecipes, setLastPostresRecipes] = useState([]);
 
   useEffect(() => {
     const recipes = query(
       productsCollectionRef,
+      where("receta", "==", true),
       orderBy("title", "asc"),
-      limit(4)
+      limit(8)
     );
     getDocs(recipes).then((collection) => {
       const product = collection.docs.map((doc) => ({
@@ -30,11 +37,35 @@ export default function Home() {
       }));
       setLastRecipes(product);
     });
+
+    const postres = query(
+      productsCollectionRef,
+      where("postre", "==", true),
+      orderBy("title", "asc"),
+      limit(8)
+    );
+
+    getDocs(postres).then((collection) => {
+      const postre = collection.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setLastPostresRecipes(postre);
+    });
   }, []);
 
-  const recetas = lastRecipes.map((item) => {
+  const recetas = lastRecipes.map((item, index) => {
     return (
-      <SwiperSlide key={item.id}>
+      <SwiperSlide className="card_home_sw" key={item.id}>
+        <Link to={`/receta/${item.id}`}>
+          <SliderCards img={item.img} title={item.title} />
+        </Link>
+      </SwiperSlide>
+    );
+  });
+  const Postres = postresRecipes.map((item) => {
+    return (
+      <SwiperSlide className="card_home_sw" key={item.id}>
         <Link to={`/receta/${item.id}`}>
           <SliderCards img={item.img} title={item.title} />
         </Link>
@@ -52,7 +83,7 @@ export default function Home() {
         <h1 className="hero_title">Cocina Conmigo</h1>
         <img src={chef} className="chef_img" alt="chef" />
       </div>
-      <h2 className="title_section">Recetas mas vistas</h2>
+      <h2 className="title_section">Ultimas Recetas</h2>
       <div className="section_two">
         <section className="swiper_section">
           <Swiper
@@ -66,9 +97,26 @@ export default function Home() {
               disableOnInteraction: false,
             }}
             spaceBetween={20}
-            slidesPerView={4}
+            slidesPerView={3}
           >
             {recetas}
+          </Swiper>
+          <h2 className="title_section title_section2 ">Ultimos Postres</h2>
+
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            pagination={{
+              clickable: true,
+            }}
+            autoplay={{
+              delay: 5000,
+              pauseOnMouseEnter: true,
+              disableOnInteraction: false,
+            }}
+            spaceBetween={20}
+            slidesPerView={3}
+          >
+            {Postres}
           </Swiper>
         </section>
         <section className="aside_blog">
@@ -77,26 +125,12 @@ export default function Home() {
             <hr className="aside_linea" />
             <div className="blog_text">
               <ul>
-                <li>
-                  <IoIceCream className="list_icon" />
-                  Beneficios del té verde
-                </li>
-                <li>
-                  <IoIceCream className="list_icon" />
-                  Beneficios del té verde
-                </li>
-                <li>
-                  <IoIceCream className="list_icon" />
-                  Beneficios del té verde
-                </li>
-                <li>
-                  <IoIceCream className="list_icon" />
-                  Beneficios del té verde
-                </li>
-                <li>
-                  <IoIceCream className="list_icon" />
-                  Beneficios del té verde
-                </li>
+                <li>Beneficios del té verde</li>
+                <li>Cuanta agua debo ingerir en el dia?</li>
+                <li>Beneficios de ingerir alcachofas</li>
+                <li>Como crear habitos</li>
+                <li>Beneficios de saltar cuerda</li>
+                <li>Como organizar la comida de la semana</li>
               </ul>
             </div>
           </div>

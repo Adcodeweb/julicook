@@ -1,9 +1,18 @@
 import Card from "../Components/Card";
-import { collection, getDocs, orderBy, startAfter } from "firebase/firestore";
+import Filter from "../Components/Filter";
 
-import { query, limit } from "firebase/firestore";
-import { useEffect, useState } from "react";
 import { db } from "../firebase-config";
+import {
+  collection,
+  getDocs,
+  orderBy,
+  startAfter,
+  where,
+  query,
+  limit,
+} from "firebase/firestore";
+
+import { useEffect, useState } from "react";
 import PuffLoader from "react-spinners/PuffLoader";
 
 export default function Products() {
@@ -17,7 +26,12 @@ export default function Products() {
   useEffect(() => {
     setIsLoading(true);
 
-    const firstDocs = query(productsCollectionRef, orderBy("title"), limit(4));
+    const firstDocs = query(
+      productsCollectionRef,
+      where("receta", "==", true),
+      orderBy("title"),
+      limit(4)
+    );
     getDocs(firstDocs).then((collections) => {
       const isCollectionEmpty = collections.size === 0;
       if (!isCollectionEmpty) {
@@ -85,25 +99,11 @@ export default function Products() {
           <>
             <section className="products_container">
               <div className="cards__container">{cards}</div>
-
               <aside className="aside">
-                <h4>Categoria</h4>
-                <ul className="aside_list">
-                  <p>Sopa</p>
-                  <p>Sopa</p>
-                  <p>torta</p>
-                  <p>Sopa</p>
-                  <p>Sopa</p>
-                  <p>Sopa</p>
-                  <p>Sopa</p>
-                  <p>Sopa</p>
-                  <p>Sopa</p>
-                  <p>Sopa</p>
-                  <p>Sopa</p>
-                  <p>Sopa</p>
-                </ul>
+                <Filter />
               </aside>
             </section>
+
             {!isEmpty && !loading && (
               <button className="btn_more" onClick={fetchMore}>
                 Mostrar más

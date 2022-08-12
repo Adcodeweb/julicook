@@ -14,6 +14,10 @@ export default function Footer() {
       <div className="line"></div>
       <div className="footer_s2">
         <img src={logo} alt="logo" className="footer_logo" />
+        <p>
+          This page was design and created by:
+          <a href="mailto:adcodeweb@gmail.com"> AdcodeWeb</a>
+        </p>
       </div>
     </footer>
   );

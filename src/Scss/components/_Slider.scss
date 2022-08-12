@@ -14,11 +14,15 @@
     height: 170px;
     width: 100%;
     object-fit: cover;
+    transition: ease-in-out 300ms;
   }
+}
+.sw_card:hover {
+  opacity: 0.8;
 }
 
 .sw_card_text_box {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #6c698d8b;
   position: absolute;
   bottom: 0;
   height: 30%;
@@ -44,7 +48,7 @@
     opacity: 0.3;
   }
   & .swiper-pagination-bullet-active {
-    background-color: var(--rosa);
+    background-color: #006992;
     opacity: 1;
   }
 }
@@ -55,5 +59,8 @@
     & img {
       min-width: auto;
     }
+  }
+  .sw_card:hover {
+    opacity: 1;
   }
 }

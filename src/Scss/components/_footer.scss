@@ -1,3 +1,6 @@
+footer {
+  background-color: var(--rosa);
+}
 .footer {
   // height: 120px;
   width: 100%;
@@ -31,6 +34,19 @@
 .footer_s2 {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  & p {
+    font-size: 0.6rem;
+    font-weight: 500;
+
+    & a {
+      color: #4472ca;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+  }
 }
 
 .footer_logo {
