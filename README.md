@@ -43,10 +43,10 @@ Using params from react-router-dom I can get the id of the card that was clicked
 # Mobile
 
 
-<img src="https://user-images.githubusercontent.com/105512009/184296030-dd202a13-f2b2-46d1-a6cf-a91e421f744d.jpeg" width="400">
-<img src="https://user-images.githubusercontent.com/105512009/184296037-2e4e8225-ea79-4dde-98ce-68a8b70dc378.jpeg" width="400">
-<img src="https://user-images.githubusercontent.com/105512009/184296043-8e7dcd29-196a-4d7c-a36d-0919972c265b.jpeg" width="400">
-<img src="https://user-images.githubusercontent.com/105512009/184296308-1ed67017-41b2-484b-8d87-efda81843199.jpeg" width="400">
+<img src="https://user-images.githubusercontent.com/105512009/184296030-dd202a13-f2b2-46d1-a6cf-a91e421f744d.jpeg" width="300">
+<img src="https://user-images.githubusercontent.com/105512009/184296037-2e4e8225-ea79-4dde-98ce-68a8b70dc378.jpeg" width="300">
+<img src="https://user-images.githubusercontent.com/105512009/184296043-8e7dcd29-196a-4d7c-a36d-0919972c265b.jpeg" width="300">
+<img src="https://user-images.githubusercontent.com/105512009/184296308-1ed67017-41b2-484b-8d87-efda81843199.jpeg" width="300">
 
 
 I am trying to learn as much as possible everyday.
