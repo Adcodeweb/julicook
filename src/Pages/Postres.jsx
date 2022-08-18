@@ -19,7 +19,7 @@ export default function Postres(params) {
   useEffect(() => {
     const recipes = query(
       productsCollectionRef,
-      where("postre", "==", true),
+      where("receta", "==", "postre"),
       orderBy("title", "asc"),
       limit(8)
     );
@@ -38,7 +38,7 @@ export default function Postres(params) {
         key={item.id}
         clave={item.id}
         title={item.title}
-        img={item.img}
+        img={item.cover}
         description={item.descripcion}
       />
     );

@@ -26,7 +26,7 @@ export default function Home() {
   useEffect(() => {
     const recipes = query(
       productsCollectionRef,
-      where("receta", "==", true),
+      where("receta", "==", "receta"),
       orderBy("title", "asc"),
       limit(8)
     );
@@ -40,7 +40,7 @@ export default function Home() {
 
     const postres = query(
       productsCollectionRef,
-      where("postre", "==", true),
+      where("receta", "==", "postre"),
       orderBy("title", "asc"),
       limit(8)
     );
@@ -58,7 +58,7 @@ export default function Home() {
     return (
       <SwiperSlide className="card_home_sw" key={item.id}>
         <Link to={`/receta/${item.id}`}>
-          <SliderCards img={item.img} title={item.title} />
+          <SliderCards img={item.cover} title={item.title} />
         </Link>
       </SwiperSlide>
     );
@@ -67,7 +67,7 @@ export default function Home() {
     return (
       <SwiperSlide className="card_home_sw" key={item.id}>
         <Link to={`/receta/${item.id}`}>
-          <SliderCards img={item.img} title={item.title} />
+          <SliderCards img={item.cover} title={item.title} />
         </Link>
       </SwiperSlide>
     );

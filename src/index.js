@@ -11,6 +11,7 @@ import Navbar from './Components/Navbar';
 import Details from './Pages/Details';
 import Footer from './Components/Footer';
 import Postres from './Pages/Postres';
+import CreateRecipe from './Pages/CreateRecipe';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
       <Route path="/receta" element={<Products />} />
       <Route path="/receta/:productId" element={<Details />} />
       <Route path="postres" element={<Postres />} />
+      <Route path="/create-recipe" element={<CreateRecipe />} />
 
     </Routes>
     <Footer />

@@ -7,7 +7,7 @@ import PuffLoader from "react-spinners/PuffLoader";
 export default function Details() {
   let { productId } = useParams();
   const [product, setProduct] = useState([]);
-  const [steps, setSteps] = useState([""]);
+  const [pasos, setPasos] = useState([""]);
   const [ingredientes, setIngredientes] = useState([""]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,18 +17,18 @@ export default function Details() {
     const docRef = doc(db, "Products", productId);
     getDoc(docRef).then((doc) => {
       setProduct(doc.data());
-      setSteps(doc.data().steps);
+      setPasos(doc.data().pasos);
       setIngredientes(doc.data().ingredientes);
       setIsLoading(false);
     });
   }, [productId]);
 
-  const Details = steps.map((step, index) => {
+  const Details = pasos.map((step, index) => {
     return (
       <li key={index} className="step_container">
         <div className="step_box">
           <h3>{step.titulo}</h3>
-          <p>{step.name}</p>
+          <p>{step.descripcion}</p>
           {step.img && (
             <div
               style={{ backgroundImage: `url(${step.img})` }}
@@ -41,7 +41,7 @@ export default function Details() {
   });
 
   const Ingredientes = ingredientes.map((item, index) => {
-    return <li key={index}>{item.ingrediente}</li>;
+    return <li key={index}>{item}</li>;
   });
 
   return (
@@ -52,7 +52,7 @@ export default function Details() {
         <>
           <section className="product_sec1">
             <div className="product_img">
-              <img src={product.img} alt={product.title} />
+              <img src={product.cover} alt={product.title} />
             </div>
             <div className="product__info">
               <h2 className="product_title">{product.title}</h2>
@@ -71,7 +71,7 @@ export default function Details() {
               </div>
             </div>
           </section>
-          {steps && <ol className="detalles_container">{Details}</ol>}
+          {pasos && <ol className="detalles_container">{Details}</ol>}
         </>
       )}
     </div>

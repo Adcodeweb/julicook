@@ -28,7 +28,7 @@ export default function Products() {
 
     const firstDocs = query(
       productsCollectionRef,
-      where("receta", "==", true),
+      where("receta", "==", "receta"),
       orderBy("title"),
       limit(4)
     );
@@ -83,7 +83,7 @@ export default function Products() {
         key={item.id}
         clave={item.id}
         title={item.title}
-        img={item.img}
+        img={item.cover}
         description={item.descripcion}
       />
     );
